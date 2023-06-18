@@ -1,7 +1,19 @@
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Archives from "./pages/archives/Archives";
+import { Popup } from "./component/popUp/Popup";
 
 function App() {
-  return <div className="App">hey</div>;
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/archive" element={<Archives />} />
+        <Route path="/popUp" element={<Popup />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
