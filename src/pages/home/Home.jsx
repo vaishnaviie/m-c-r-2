@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useData } from "../../context/ContextProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Popup } from "../../component/popUp/Popup";
 import Card from "../../component/card/Card";
 
@@ -26,6 +26,7 @@ const Home = () => {
       payload: [...state?.habitsArray, { ...habit, isArchive: false }],
     });
     toggleFunc();
+    setHabit({});
     // navigate("/");
   };
 
@@ -50,12 +51,14 @@ const Home = () => {
     { label: "Now", value: "Now" },
   ];
 
+  const habitList = state?.habitsArray.filter((habit) => !habit.isArchive);
+
   return (
     <div>
       <button onClick={toggleFunc}>add habits</button>
-      <button>archieve</button>
+      <Link to="./archive">archieve</Link>
       <div style={{ display: "flex", gap: "2rem" }}>
-        {state?.habitsArray?.map((habit) => (
+        {habitList?.map((habit) => (
           <Card habit={habit} />
         ))}
       </div>
