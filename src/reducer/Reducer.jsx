@@ -1,7 +1,5 @@
 export const initialState = {
   habitsArray: [],
-  homeHabitsArr: null,
-  archiveArr: [],
 };
 
 export const ReducerFunc = (state, action) => {
@@ -9,19 +7,7 @@ export const ReducerFunc = (state, action) => {
     case "SET_HABITS_ARRAY": {
       return {
         ...state,
-        habitsArray:
-          state?.habitsArray?.length >= 0
-            ? [...state?.habitsArray, action.payload]
-            : "",
-      };
-    }
-    case "ADD_TO_ARCHIVE": {
-      return {
-        ...state,
-        archiveArr:
-          state?.archiveArr?.length >= 0
-            ? [...state?.archiveArr, action.payload]
-            : "",
+        habitsArray: action.payload,
       };
     }
 

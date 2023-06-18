@@ -4,60 +4,6 @@ import { useData } from "../../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 
 export const Popup = (props) => {
-  const navigate = useNavigate();
-  const { state, dispatch } = useData();
-  const [name, setName] = useState("");
-  const [repeat, setRepeat] = useState("Daily");
-  const [goals, setGoals] = useState("1 times Daily");
-  const [timeOfDay, setTimeOfDay] = useState("Any time");
-  const [startDate, setStartDate] = useState("Today");
-  const [habit, setHabit] = useState({
-    id: "",
-    name: "",
-    repeat_: "",
-    goals_: "",
-    tod_: "",
-    startDate_: "",
-  });
-
-  const saveHandler = () => {
-    setHabit({
-      id: uuidv4(),
-      name_: name,
-      repeat_: repeat,
-      goals_: goals,
-      tod_: timeOfDay,
-      startDate_: startDate,
-    });
-
-    dispatch({ type: "SET_HABITS_ARRAY", payload: habit });
-    setName("");
-    // navigate("/");
-  };
-
-  const Repeat = [
-    { label: "Daily", value: "Daily" },
-    { label: "Weekly", value: "Weekly" },
-    { label: "Monthly", value: "Monthly" },
-  ];
-  const Goals = [
-    { label: "1 times Daily", value: "1 times Daily" },
-    { label: "2 times Daily", value: "2 times Daily" },
-    { label: "3 times Daily", value: "3 times Daily" },
-  ];
-  const TimesOfDay = [
-    { label: "Any time", value: "Any time" },
-    { label: "Morning", value: "Morning" },
-    { label: "Evening", value: "Evening" },
-  ];
-  const StartDate = [
-    { label: "Today", value: "Today" },
-    { label: "Tomorrow", value: "Tomorrow" },
-    { label: "Now", value: "Now" },
-  ];
-
-  // console.log(habit);
-  console.log(state);
   return (
     <div
       style={{
@@ -84,8 +30,7 @@ export const Popup = (props) => {
         }}
       >
         <span
-          // onClick={props.handleClose}
-          onClick={() => navigate("/")}
+          onClick={props.handleClose}
           style={{
             content: "x",
             cursor: "pointer",
@@ -104,8 +49,73 @@ export const Popup = (props) => {
         >
           x
         </span>
-        {/* {props.content} */}
-        <button onClick={() => navigate("/")}>home</button>
+        {props.content}
+      </div>
+    </div>
+  );
+};
+
+// const navigate = useNavigate();
+// const { state, dispatch } = useData();
+// const [name, setName] = useState("");
+// const [repeat, setRepeat] = useState("Daily");
+// const [goals, setGoals] = useState("1 times Daily");
+// const [timeOfDay, setTimeOfDay] = useState("Any time");
+// const [startDate, setStartDate] = useState("Today");
+// const [habit, setHabit] = useState({
+//   // id: "",
+//   name_: "",
+//   repeat_: "",
+//   goals_: "",
+//   tod_: "",
+//   startDate_: "",
+// });
+
+// const saveHandler = () => {
+//   setHabit({
+//     // id: uuidv4(),
+//     name_: name,
+//     repeat_: repeat,
+//     goals_: goals,
+//     tod_: timeOfDay,
+//     startDate_: startDate,
+//     isArchive_: false,
+//   });
+
+//   dispatch({
+//     type: "SET_HABITS_ARRAY",
+//     payload: [...state?.habitsArray, habit],
+//   });
+//   setName("");
+//   // navigate("/");
+// };
+
+// const Repeat = [
+//   { label: "Daily", value: "Daily" },
+//   { label: "Weekly", value: "Weekly" },
+//   { label: "Monthly", value: "Monthly" },
+// ];
+// const Goals = [
+//   { label: "1 times Daily", value: "1 times Daily" },
+//   { label: "2 times Daily", value: "2 times Daily" },
+//   { label: "3 times Daily", value: "3 times Daily" },
+// ];
+// const TimesOfDay = [
+//   { label: "Any time", value: "Any time" },
+//   { label: "Morning", value: "Morning" },
+//   { label: "Evening", value: "Evening" },
+// ];
+// const StartDate = [
+//   { label: "Today", value: "Today" },
+//   { label: "Tomorrow", value: "Tomorrow" },
+//   { label: "Now", value: "Now" },
+// ];
+
+// console.log(habit);
+// console.log(state);
+
+{
+  /* <button onClick={() => navigate("/")}>home</button>
 
         <input
           type="text"
@@ -155,8 +165,5 @@ export const Popup = (props) => {
             </option>
           ))}
         </select>
-        <button onClick={saveHandler}>save</button>
-      </div>
-    </div>
-  );
-};
+        <button onClick={saveHandler}>save</button> */
+}

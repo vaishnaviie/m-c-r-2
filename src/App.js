@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/archive" element={<Archives />} />
-        <Route path="/popUp" element={<Popup />} />
       </Routes>
     </div>
   );
